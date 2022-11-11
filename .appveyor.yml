@@ -2,4 +2,4 @@ build: off
 init:
 - sh: curl -sflL https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh | bash -e -
 install:
-- ps: ls
+- ps: docker run mcr.microsoft.com/windows:1809 cmd /k "echo hello"
