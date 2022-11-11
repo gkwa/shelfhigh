@@ -1,0 +1,4 @@
+test_task:
+  container:
+    image: mcr.microsoft.com/windows/servercore:ltsc2019
+  test_script: cmd /k "echo hello"
