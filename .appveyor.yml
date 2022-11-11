@@ -4,7 +4,7 @@ image:
 build: off
 init:
 - ps: gcim Win32_OperatingSystem | % { "$([int]($_.TotalVisibleMemorySize/1mb)) Gb" }
-- ps: restart-service *docker*
+- docker-machine restart
 - ps: Start-Sleep -Seconds 120
 install:
 - ps: docker run mcr.microsoft.com/windows/servercore:ltsc2019 cmd /k "echo hello"
