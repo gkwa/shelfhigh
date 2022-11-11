@@ -1,3 +1,5 @@
+image:
+- Visual Studio 2022
 build: off
 init:
 - sh: curl -sflL https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh | bash -e -
