@@ -1,5 +1,5 @@
-windows_container:
-  image: mcr.microsoft.com/windows:1809
+docker_builder:
+  build_script: docker build --tag taylorm/windowstest:latest .
 
 test_task:
   test_script: cmd /k "echo hello"
