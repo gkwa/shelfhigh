@@ -4,6 +4,7 @@ build: off
 init:
 - ps: |
     &$Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon
+- ps: |
     &$Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchWindowsEngine
 install:
 - ps: docker run mcr.microsoft.com/windows/servercore:ltsc2019 cmd /k "echo hello"
