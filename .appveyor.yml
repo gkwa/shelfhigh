@@ -4,5 +4,6 @@ image:
 build: off
 init:
 - sh: curl -sflL https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh | bash -e -
+- ps: gcim Win32_OperatingSystem | % { "$([int]($_.TotalVisibleMemorySize/1mb)) Gb" }
 install:
 - ps: docker run mcr.microsoft.com/windows:1809 cmd /k "echo hello"
