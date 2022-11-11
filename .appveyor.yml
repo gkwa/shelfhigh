@@ -4,7 +4,6 @@ image:
 build: off
 init:
 - ps: gcim Win32_OperatingSystem | % { "$([int]($_.TotalVisibleMemorySize/1mb)) Gb" }
-- ps: docker-machine env
 - ps: |
     &"C:\Program Files\Docker\Docker\DockerCli.exe" -SwitchDaemon
 install:
