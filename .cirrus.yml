@@ -1,5 +1,5 @@
 windows_container:
-  image: cirrusci/windowsservercore:2019
+  image: mcr.microsoft.com/windows:1809
 
 test_task:
   test_script: cmd /k "echo hello"
