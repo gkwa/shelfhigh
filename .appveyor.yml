@@ -2,7 +2,6 @@ image:
 - Visual Studio 2022
 build: off
 init:
-- ps: gcim Win32_OperatingSystem | % { "$([int]($_.TotalVisibleMemorySize/1mb)) Gb" }
 - ps: &$Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchWindowsEngine
 install:
 - ps: docker run mcr.microsoft.com/windows/servercore:ltsc2019 cmd /k "echo hello"
