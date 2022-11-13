@@ -1,7 +1,7 @@
-FROM mcr.microsoft.com/windows:1809
-
-ENV CYGWIN=winsymlinks
-
-RUN choco --version
-RUN choco feature enable -n allowGlobalConfirmation
-RUN choco install cygwin
+FROM mcr.microsoft.com/dotnet/framework/sdk
+RUN powershell -c 'New-Item -Type "directory" -Force -Path /Windows/Temp/sxs'
+COPY ./sxs/* /Windows/Temp/sxs/
+RUN dism.exe /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess
+COPY ./script.ps1 /Windows/Temp/script.ps1
+COPY ./script1.ps1 /Windows/Temp/script1.ps1
+RUN powershell /Windows/Temp/script.ps1
