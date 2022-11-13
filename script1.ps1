@@ -19,6 +19,10 @@ function Get-FileIfNotExists {
 $url = "https://software-download.microsoft.com/download/pr/19042.508.200927-1902.20h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso"
 $filename = Split-Path -Leaf -Path $url
 $fileinfo = New-Object System.IO.FileInfo($filename)
+$basedir = "${HOME}/Downloads"
+
+If(!Test-Path($basedir)){ New-Item -Type "directory" -Force -Path $basedir | Out-Null; }
+
 $iso = Join-Path "${HOME}/Downloads" $filename
 Get-FileIfNotExists $url $iso
 $global:ProgressPreference = "SilentlyContinue"
