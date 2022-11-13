@@ -8,6 +8,7 @@ init:
 - ps: |
     &$Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchWindowsEngine
 install:
+- ps: (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ReleaseId).ReleaseId
 - ps: ./script1.ps1
 - ps: docker build -t mytest .
 - ps: Invoke-WebRequest -Uri http://ntfy.sh/monacelli-shelfhigh -Method POST -Body ready
