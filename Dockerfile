@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/microsoft-windows-servercore
-FROM mcr.microsoft.com/windows/servercore 20H2-KB5016616
+FROM mcr.microsoft.com/windows/servercore:20H2-KB5016616
 #FROM cirrusci/windowsservercore
 #FROM mcr.microsoft.com/windows/servercore:20H2-KB5016616
 #FROM mcr.microsoft.com/windows/nanoserver:1809
