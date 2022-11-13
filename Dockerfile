@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/framework/sdk
+FROM mcr.microsoft.com/windows/nanoserver:1809
 RUN powershell -c 'New-Item -Type "directory" -Force -Path /Windows/Temp/sxs'
 COPY ./sxs/* /Windows/Temp/sxs/
 RUN dism.exe /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess
