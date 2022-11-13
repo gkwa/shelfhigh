@@ -32,7 +32,7 @@
 #FROM mcr.microsoft.com/windows/server:10.0.20348.825-amd64
 #FROM mcr.microsoft.com/windows/server:10.0.20348.887
 #FROM mcr.microsoft.com/windows/server:10.0.20348.887-amd64
-#FROM mcr.microsoft.com/windows/server:ltsc2022
+FROM mcr.microsoft.com/windows/server:ltsc2022
 #FROM mcr.microsoft.com/windows/server:ltsc2022-KB5005039
 #FROM mcr.microsoft.com/windows/server:ltsc2022-KB5005039-amd64
 #FROM mcr.microsoft.com/windows/server:ltsc2022-KB5005575
@@ -68,7 +68,7 @@
 #FROM mcr.microsoft.com/windows/server:ltsc2022-KB5019081
 #FROM mcr.microsoft.com/windows/server:ltsc2022-KB5019081-amd64
 #FROM mcr.microsoft.com/windows/server:ltsc2022-amd64
-FROM mcr.microsoft.com/windows/server:win10-21h1-preview
+#FROM mcr.microsoft.com/windows/server:win10-21h1-preview
 
 
 # https://hub.docker.com/_/microsoft-windows-servercore
