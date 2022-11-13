@@ -1,6 +1,5 @@
 env:
   CIRRUS_SHELL: powershell
-
 docker_builder:
   setup_script:
   - ./script1.ps1
