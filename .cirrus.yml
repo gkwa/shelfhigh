@@ -1,6 +1,9 @@
+env:
+  CIRRUS_SHELL: powershell
+
 docker_builder:
   setup_script:
-  - powershell ./script1.ps1
+  - ./script1.ps1
   platform: windows
   os_version: 2019
   build_script: docker build --tag taylorm/windowstest:latest .
