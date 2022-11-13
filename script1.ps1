@@ -28,13 +28,14 @@ Get-FileIfNotExists $url $iso
 $global:ProgressPreference = "SilentlyContinue"
 Mount-DiskImage -ImagePath $iso
 
-New-Item -Type "directory" -Force -Path sxs | Out-Null
+$target_dir = "./sxs"
+New-Item -Type "directory" -Force -Path $target_dir | Out-Null
 
 for ($iter = 0; $iter -lt 26; $iter++)
 {
     $drive=[char](65 + $iter)
     $source = "${drive}:/sources/sxs"
-    $target_dir = "./sxs"
+
     If(!(Test-Path($source))){
         Continue
     }
