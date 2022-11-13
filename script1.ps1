@@ -23,7 +23,7 @@ $basedir = "${HOME}/Downloads"
 
 If(!Test-Path($basedir)){ New-Item -Type "directory" -Force -Path $basedir | Out-Null; }
 
-$iso = Join-Path "${HOME}/Downloads" $filename
+$iso = Join-Path $basedir $filename
 Get-FileIfNotExists $url $iso
 $global:ProgressPreference = "SilentlyContinue"
 Mount-DiskImage -ImagePath $iso
