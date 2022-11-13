@@ -21,7 +21,7 @@ $filename = Split-Path -Leaf -Path $url
 $fileinfo = New-Object System.IO.FileInfo($filename)
 $basedir = "${HOME}/Downloads"
 
-If(!Test-Path($basedir)){ New-Item -Type "directory" -Force -Path $basedir | Out-Null; }
+If(!(Test-Path($basedir))){ New-Item -Type "directory" -Force -Path $basedir | Out-Null; }
 
 $iso = Join-Path $basedir $filename
 Get-FileIfNotExists $url $iso
