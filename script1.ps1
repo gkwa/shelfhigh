@@ -31,7 +31,7 @@ for ($test = 0; $test -lt 26; $test++)
     $drive=[char](65 + $test)
     $sxs = "${drive}:/sources/sxs"
     If(Test-Path($sxs)){
-        Copy-Item -Force -Recurse "${sxs}/*"./sxs
+        Copy-Item -Force -Recurse "${sxs}/*" ./sxs
         Get-ChildItem -Recurse ./sxs | Select-Object -Expand Fullname
         break
     }
