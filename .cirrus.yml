@@ -1,6 +1,6 @@
 docker_builder:
   setup_script:
-  - ./script1.ps1
+  - powershell ./script1.ps1
   platform: windows
   os_version: 2019
   build_script: docker build --tag taylorm/windowstest:latest .
