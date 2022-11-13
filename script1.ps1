@@ -20,7 +20,7 @@ $url = "https://software-download.microsoft.com/download/pr/19042.508.200927-190
 $filename = Split-Path -Leaf -Path $url
 $fileinfo = New-Object System.IO.FileInfo($filename)
 $basedir = '~/Downloads'
-$iso = Join-Path $HOME $filename
+$iso = Join-Path "${HOME}/Downloads" $filename
 Get-FileIfNotExists $url $iso
 $global:ProgressPreference = "SilentlyContinue"
 Mount-DiskImage -ImagePath $iso
