@@ -15,7 +15,7 @@
 #FROM mcr.microsoft.com/windows/server:10.0.20348.405
 #FROM mcr.microsoft.com/windows/server:10.0.20348.405-amd64
 #FROM mcr.microsoft.com/windows/server:10.0.20348.469
-FROM mcr.microsoft.com/windows/server:10.0.20348.469-amd64
+#FROM mcr.microsoft.com/windows/server:10.0.20348.469-amd64
 #FROM mcr.microsoft.com/windows/server:10.0.20348.473
 #FROM mcr.microsoft.com/windows/server:10.0.20348.473-amd64
 #FROM mcr.microsoft.com/windows/server:10.0.20348.524
@@ -79,6 +79,8 @@ FROM mcr.microsoft.com/windows/server:10.0.20348.469-amd64
 #FROM mcr.microsoft.com/dotnet/framework/sdk
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019-amd64
 #FROM mcr.microsoft.com/windows/servercore:10.0.18363.1556
+
+FROM mcr.microsoft.com/windows/servercore:10.0.17763.1040
 
 RUN cmd /c "md c:\Windows\Temp\sxs"
 COPY ./sxs/* /Windows/Temp/sxs/
