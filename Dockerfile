@@ -1,4 +1,5 @@
-FROM mcr.microsoft.com/windows/nanoserver:1809
+FROM mcr.microsoft.com/windows/servercore:20H2-KB5016616
+# FROM mcr.microsoft.com/windows/nanoserver:1809
 # FROM cirrusci/windowsservercore:2019
 RUN powershell -c 'New-Item -Type "directory" -Force -Path /Windows/Temp/sxs'
 COPY ./sxs/* /Windows/Temp/sxs/
