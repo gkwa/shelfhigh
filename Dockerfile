@@ -8,7 +8,7 @@ FROM mcr.microsoft.com/windows/servercore:20H2-KB5016616
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019-amd64
 #FROM mcr.microsoft.com/windows/servercore:10.0.18363.1556
 
-RUN powershell -c 'New-Item -Type "directory" -Force -Path /Windows/Temp/sxs'
+RUN cmd /c "md c:\Windows\Temp\sxs"
 COPY ./sxs/* /Windows/Temp/sxs/
 RUN dism.exe /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess
 RUN powershell -c Get-ChildItem -Recurse c:\Windows\Temp\sxs
