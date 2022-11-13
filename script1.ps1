@@ -5,4 +5,4 @@ $ProgressPreference = 'SilentlyContinue'
 Invoke-WebRequest -UseBasicParsing -Uri $url -Outfile $filename
 $iso = Join-Path (pwd) $filename
 Mount-DiskImage -ImagePath $iso
-Get-ChildItem -Recurse d:\sources\sxs |Select-Object -Expand Fullname
+Get-ChildItem -Recurse d:\sources\sxs | Select-Object -Expand Fullname

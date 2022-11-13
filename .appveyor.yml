@@ -8,8 +8,8 @@ init:
 - ps: |
     &$Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchWindowsEngine
 install:
-- ps: docker pull mcr.microsoft.com/windows/servercore:ltsc2019-amd64
-- ps: docker run mcr.microsoft.com/windows/servercore:ltsc2019 cmd /k "echo hello"
+- ps: ./script1.ps1
+- ps: docker build -t mytest .
 - ps: Invoke-WebRequest -Uri http://ntfy.sh/monacelli-shelfhigh -Method POST -Body ready
-on_finish:
-- ps: Start-Sleep -Seconds 3600
+#on_finish:
+#- ps: Start-Sleep -Seconds 3600
