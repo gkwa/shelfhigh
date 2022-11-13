@@ -30,13 +30,15 @@ Mount-DiskImage -ImagePath $iso
 
 New-Item -Type "directory" -Force -Path sxs | Out-Null
 
-for ($test = 0; $test -lt 26; $test++)
+for ($iter = 0; $iter -lt 26; $iter++)
 {
-    $drive=[char](65 + $test)
-    $sxs = "${drive}:/sources/sxs"
-    If(Test-Path($sxs)){
-        Copy-Item -Force -Recurse "${sxs}/*" ./sxs
-        Get-ChildItem -Recurse ./sxs | Select-Object -Expand Fullname
-        break
+    $drive=[char](65 + $iter)
+    $source = "${drive}:/sources/sxs"
+    $target_dir = "./sxs"
+    If(!(Test-Path($source))){
+        Continue
     }
+    Copy-Item -Force -Recurse "${source}/*" $target_dir
+    Get-ChildItem -Recurse $target_dir | Select-Object -Expand Fullname
+    break
 }
