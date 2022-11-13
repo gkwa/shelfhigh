@@ -1,6 +1,6 @@
 #FROM mcr.microsoft.com/windows/servercore:20H2-KB5016616
-#FROM mcr.microsoft.com/windows/nanoserver:1809
-FROM cirrusci/windowsservercore:2019
+FROM mcr.microsoft.com/windows/nanoserver:1809
+#FROM cirrusci/windowsservercore:2019
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019
 #FROM mcr.microsoft.com/dotnet/framework/sdk
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019-amd64
