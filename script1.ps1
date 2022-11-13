@@ -23,7 +23,3 @@ Get-FileIfNotExists $url $filename
 $global:ProgressPreference = "SilentlyContinue"
 $iso = Join-Path (pwd) $filename
 Mount-DiskImage -ImagePath $iso
-
-New-Item -Type "directory" -Force -Path sxs | Out-Null
-Copy-Item -Force -Recurse d:/sources/sxs/* ./sxs
-Get-ChildItem -Recurse ./sxs | Select-Object -Expand Fullname
