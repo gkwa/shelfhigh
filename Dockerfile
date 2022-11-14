@@ -86,7 +86,7 @@ FROM mcr.microsoft.com/powershell:preview-nanoserver-1803
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx3
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx4
 
-RUN pwsh "Set-Service -Name wuauserv -StartupType Manual; Install-WindowsFeature -Name NET-Framework-Features -Verbose"
+RUN pwsh -Command "Set-Service -Name wuauserv -StartupType Manual; Install-WindowsFeature -Name NET-Framework-Features -Verbose"
 
 RUN choco feature enable -n allowGlobalConfirmation
 RUN choco feature disable -n showDownloadProgress
