@@ -86,14 +86,5 @@ FROM mcr.microsoft.com/dotnet/framework/sdk
 
 RUN powershell "Set-Service -Name wuauserv -StartupType Manual; Install-WindowsFeature -Name NET-Framework-Features -Verbose"
 
-#RUN powershell -Command Install-WindowsFeature -Name Hyper-V-PowerShell
-#RUN powershell -Command Install-WindowsFeature NET-Framework-Core
-
-RUN cmd /c "md c:\Windows\Temp\sxs"
-COPY ./sxs/* /Windows/Temp/sxs/
-RUN cmd /c "dir /s /b c:\Windows\Temp\sxs"
 COPY ./script.ps1 /Windows/Temp/
-COPY ./script1.ps1 /Windows/Temp/
-COPY ./sxs.ps1 /Windows/Temp/
-RUN powershell /Windows/Temp/sxs.ps1
 RUN powershell /Windows/Temp/script.ps1
