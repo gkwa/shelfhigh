@@ -94,5 +94,5 @@ RUN cmd /c "dir /s /b c:\Windows\Temp\sxs"
 COPY ./script.ps1 /Windows/Temp/
 COPY ./script1.ps1 /Windows/Temp/
 COPY ./sxs.ps1 /Windows/Temp/
-RUN powershell /Windows/Temp/script8.ps1
+RUN powershell /Windows/Temp/sxs.ps1
 RUN powershell /Windows/Temp/script.ps1
