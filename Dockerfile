@@ -9,6 +9,7 @@ RUN powershell "choco feature enable -n allowGlobalConfirmation; choco feature d
 RUN choco install \
     wixtoolset \
     awscli \
+    jq \
     git
 RUN choco install python --version 3.9
 RUN pip install --upgrade pip
