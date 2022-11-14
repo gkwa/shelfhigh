@@ -84,7 +84,7 @@ FROM mcr.microsoft.com/windows/servercore:10.0.17763.1040
 
 RUN cmd /c "md c:\Windows\Temp\sxs"
 COPY ./sxs/* /Windows/Temp/sxs/
-RUN Get-ChildItem -Recurse c:\Windows\Temp\sxs | Select-Object -Expand Fullname
+RUN cmd /c "dir /s /b c:\Windows\Temp\sxs"
 RUN dism.exe /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess
 COPY ./script.ps1 /Windows/Temp/script.ps1
 COPY ./script1.ps1 /Windows/Temp/script1.ps1
