@@ -74,7 +74,8 @@
 #FROM mcr.microsoft.com/windows/servercore:20H2-KB5016616
 #FROM cirrusci/windowsservercore
 #FROM mcr.microsoft.com/windows/nanoserver:1809
-FROM cirrusci/windowsservercore:2019
+FROM mcr.microsoft.com/windows/nanoserver
+#FROM cirrusci/windowsservercore:2019
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019
 #FROM mcr.microsoft.com/dotnet/framework/sdk
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019-amd64
@@ -85,8 +86,6 @@ FROM cirrusci/windowsservercore:2019
 
 RUN powershell "Set-Service -Name wuauserv -StartupType Manual; Install-WindowsFeature -Name NET-Framework-Features -Verbose"
 
-COPY ./chocolatey.ps1 /Windows/Temp/
-RUN powershell /Windows/Temp/chocolatey.ps1
-
-COPY ./wixtoolset.ps1 /Windows/Temp/
-RUN powershell /Windows/Temp/wixtoolset.ps1
+RUN choco feature enable -n allowGlobalConfirmation
+RUN choco feature disable -n showDownloadProgress
+RUN choco install wixtoolset
