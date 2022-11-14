@@ -1,0 +1,6 @@
+jinja2
+giftmaster
+awscli
+saltgang
+pyscaffold
+hydra-core
