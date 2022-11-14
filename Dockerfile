@@ -88,12 +88,6 @@ FROM mcr.microsoft.com/powershell:preview-nanoserver-1803
 
 RUN powershell "Set-Service -Name wuauserv -StartupType Manual; Install-WindowsFeature -Name NET-Framework-Features -Verbose"
 
-
--Set-ExecutionPolicy Bypass -Scope Process -Force
--[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
--iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
-
 RUN choco feature enable -n allowGlobalConfirmation
 RUN choco feature disable -n showDownloadProgress
 RUN choco install wixtoolset
