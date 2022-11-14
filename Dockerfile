@@ -86,7 +86,7 @@
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx3
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx4
 #FROM mcr.microsoft.com/windows/servercore:ltsc2022
-FROM docker pull mcr.microsoft.com/windows/servercore:ltsc2019
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell -Command Set-Service -Name wuauserv -StartupType Manual
 RUN powershell -Command Install-WindowsFeature -Name NET-Framework-Features -Verbose
