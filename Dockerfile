@@ -5,5 +5,6 @@ RUN powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.Se
 RUN choco feature enable -n allowGlobalConfirmation
 RUN choco feature disable -n showDownloadProgress
 RUN choco install wixtoolset
-RUN choco install python awscli
+RUN choco install python --version 3.9
+RUN choco install awscli
 
