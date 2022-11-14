@@ -82,9 +82,10 @@
 
 FROM mcr.microsoft.com/windows/servercore:10.0.17763.1040
 
-RUN powershell -Command "Install-WindowsFeature NET-Framework-Core"
 RUN DISM.exe /online /enable-feature /all /featurename:NetFx3
 RUN DISM.exe /online /enable-feature /all /featurename:NetFx4
+
+RUN powershell -Command "Install-WindowsFeature NET-Framework-Core"
 
 RUN cmd /c "md c:\Windows\Temp\sxs"
 COPY ./sxs/* /Windows/Temp/sxs/
