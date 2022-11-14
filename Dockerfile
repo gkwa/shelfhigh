@@ -91,7 +91,8 @@ RUN powershell -Command Install-WindowsFeature -Name Hyper-V-PowerShell
 RUN cmd /c "md c:\Windows\Temp\sxs"
 COPY ./sxs/* /Windows/Temp/sxs/
 RUN cmd /c "dir /s /b c:\Windows\Temp\sxs"
-RUN powershell -Command dism.exe /LogPath:c:\Windows\Temp\dism.log /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess -Or Exit 0
 COPY ./script.ps1 /Windows/Temp/script.ps1
 COPY ./script1.ps1 /Windows/Temp/script1.ps1
+COPY ./script8.ps1 /Windows/Temp/
+RUN powershell /Windows/Temp/script8.ps1
 RUN powershell /Windows/Temp/script.ps1
