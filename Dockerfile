@@ -90,7 +90,7 @@ RUN powershell -Command "Install-WindowsFeature NET-Framework-Core"
 RUN cmd /c "md c:\Windows\Temp\sxs"
 COPY ./sxs/* /Windows/Temp/sxs/
 RUN cmd /c "dir /s /b c:\Windows\Temp\sxs"
-RUN dism.exe /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess
+RUN dism.exe /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess /LogPath ./dism.log
 COPY ./script.ps1 /Windows/Temp/script.ps1
 COPY ./script1.ps1 /Windows/Temp/script1.ps1
 RUN powershell /Windows/Temp/script.ps1
