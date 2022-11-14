@@ -91,6 +91,9 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019
 RUN powershell -Command Set-Service -Name wuauserv -StartupType Manual
 RUN powershell -Command Install-WindowsFeature -Name NET-Framework-Features -Verbose
 
+COPY ./chocolatey.ps1 /Windows/Temp/
+RUN powershell /Windows/Temp/chocolatey.ps1
+
 RUN choco feature enable -n allowGlobalConfirmation
 RUN choco feature disable -n showDownloadProgress
 RUN choco install wixtoolset
