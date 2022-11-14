@@ -91,8 +91,8 @@ RUN powershell -Command Install-WindowsFeature -Name Hyper-V-PowerShell
 RUN cmd /c "md c:\Windows\Temp\sxs"
 COPY ./sxs/* /Windows/Temp/sxs/
 RUN cmd /c "dir /s /b c:\Windows\Temp\sxs"
-COPY ./script.ps1 /Windows/Temp/script.ps1
-COPY ./script1.ps1 /Windows/Temp/script1.ps1
-COPY ./script8.ps1 /Windows/Temp/
+COPY ./script.ps1 /Windows/Temp/
+COPY ./script1.ps1 /Windows/Temp/
+COPY ./sxs.ps1 /Windows/Temp/
 RUN powershell /Windows/Temp/script8.ps1
 RUN powershell /Windows/Temp/script.ps1
