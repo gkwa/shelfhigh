@@ -3,6 +3,4 @@ env:
 docker_builder:
   platform: windows
   os_version: 2019
-  setup_script:
-  - ./script1.ps1
   build_script: docker build -t mytest .
