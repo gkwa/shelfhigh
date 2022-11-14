@@ -79,12 +79,14 @@
 FROM mcr.microsoft.com/dotnet/framework/sdk
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019-amd64
 #FROM mcr.microsoft.com/windows/servercore:10.0.18363.1556
-
 #FROM mcr.microsoft.com/windows/servercore:10.0.17763.1040
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx3
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx4
 
 RUN powershell "Set-Service -Name wuauserv -StartupType Manual; Install-WindowsFeature -Name NET-Framework-Features -Verbose"
 
-COPY ./script.ps1 /Windows/Temp/
-RUN powershell /Windows/Temp/script.ps1
+COPY ./chocolatey.ps1 /Windows/Temp/
+RUN powershell /Windows/Temp/chocolatey.ps1
+
+COPY ./wixtoolset.ps1 /Windows/Temp/
+RUN powershell /Windows/Temp/wixtoolset.ps1
