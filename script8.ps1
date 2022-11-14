@@ -1,2 +1,3 @@
-$result = dism.exe /LogPath:c:\Windows\Temp\dism.log /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess
-Write-Host $result
+$result = dism.exe /LogPath:c:\dism.log /Online /Enable-Feature /FeatureName:NetFx3 /All /Source:c:\Windows\Temp\sxs /NoRestart /LimitAccess
+cat c:\dism.log
+
