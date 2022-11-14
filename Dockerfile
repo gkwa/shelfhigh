@@ -75,7 +75,7 @@
 #FROM cirrusci/windowsservercore
 #FROM mcr.microsoft.com/windows/nanoserver:1809
 #FROM mcr.microsoft.com/windows/nanoserver:ltsc2019
-FROM mcr.microsoft.com/powershell:preview-nanoserver-1803
+#FROM mcr.microsoft.com/powershell:preview-nanoserver-1803
 #FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
 #FROM cirrusci/windowsservercore:2019
 #FROM mcr.microsoft.com/windows/servercore:ltsc2019
@@ -85,9 +85,11 @@ FROM mcr.microsoft.com/powershell:preview-nanoserver-1803
 #FROM mcr.microsoft.com/windows/servercore:10.0.17763.1040
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx3
 #RUN DISM.exe /online /enable-feature /all /featurename:NetFx4
+#FROM mcr.microsoft.com/windows/servercore:ltsc2022
+FROM docker pull mcr.microsoft.com/windows/servercore:ltsc2019
 
-#RUN pwsh -Command Set-Service -Name wuauserv -StartupType Manual
-RUN pwsh -Command Install-WindowsFeature -Name NET-Framework-Features -Verbose
+RUN powershell -Command Set-Service -Name wuauserv -StartupType Manual
+RUN powershell -Command Install-WindowsFeature -Name NET-Framework-Features -Verbose
 
 RUN choco feature enable -n allowGlobalConfirmation
 RUN choco feature disable -n showDownloadProgress
