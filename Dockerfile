@@ -7,4 +7,5 @@ RUN choco feature disable -n showDownloadProgress
 RUN choco install wixtoolset
 RUN choco install python --version 3.9
 RUN choco install awscli
-RUN pip install --requirement requirements.txt
+COPY requirements.txt /
+RUN pip install --requirement /requirements.txt
